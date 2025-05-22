@@ -1,0 +1,22 @@
+/* CRT background effect */
+body {
+    background-color: #000;
+    color: #33ff33; /* CRT green */
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 3px #33ff33, 0 0 5px #33ff33, 0 0 10px #33ff33, 0 0 15px #33ff33;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* CRT curvature */
+#app {
+    filter: contrast(1.2) brightness(0.9);
+    border-radius: 10px;
+    transform: perspective(800px) rotateX(2deg); /* Perspectief veranderen voor CRT Curve */
+    box-shadow: 0 0 20px #33ff33;
+    padding: 2rem;
+    background: #000;
+    overflow: hidden;
+}
+

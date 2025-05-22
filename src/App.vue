@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="crt-bezel">
+    <CRTScreen>
+      <router-view />
+    </CRTScreen>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CRTScreen from '@/components/CRTScreen.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CRTScreen
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body, html, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #181f13;
+}
+.crt-bezel {
+  width: 100vw;
+  height: 100vh;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10vh 10vw;
 }
 </style>
