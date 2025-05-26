@@ -1,18 +1,16 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import LoginView from '../components/LoginView.vue'
-import HomeView from '../components/HomeView.vue'
-// Voeg eventueel AboutView en PortfolioView toe
+import { createRouter, createWebHistory } from 'vue-router';
+import LoginView from '@/components/LoginView.vue';
+import HomeView from '@/components/HomeView.vue';
 
 const routes = [
-  { path: '/', name: 'Login', component: LoginView },
-  { path: '/home', name: 'Home', component: HomeView },
-  // { path: '/about', name: 'About', component: AboutView },
-  // { path: '/portfolio', name: 'Portfolio', component: PortfolioView }
-]
+  { path: '/', redirect: '/login' }, // Redirect root naar /login
+  { path: '/login', component: LoginView },
+  { path: '/home', component: HomeView }
+];
 
 const router = createRouter({
   history: createWebHistory(),
   routes
-})
+});
 
-export default router
+export default router;

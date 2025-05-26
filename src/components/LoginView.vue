@@ -1,5 +1,5 @@
 <template>
-  <div class="pipboy-login" @click="proceed" @keyup.enter="proceed" tabindex="0">
+  <div class="pipboy-login" tabindex="0">
     <pre>
 <span class="pipboy-cmd">LOGIN USER</span>
 <span v-if="!proceeding" class="pipboy-blink">_</span>
@@ -18,15 +18,23 @@ export default {
     }
   },
   mounted() {
-    this.$el.focus();
+    // Start de animatie automatisch bij het laden van de pagina
+    this.startLoginSequence();
   },
   methods: {
+    startLoginSequence() {
+      // Start de animatie
+      this.proceeding = true;
+
+      // Navigeer na 1,2 seconden naar de HomeView
+      setTimeout(() => {
+        this.$router.push('/home');
+      }, 1200);
+    },
     proceed() {
+      // Handmatige trigger (bij klikken of ENTER)
       if (!this.proceeding) {
-        this.proceeding = true;
-        setTimeout(() => {
-          this.$router.push('/home');
-        }, 1200);
+        this.startLoginSequence();
       }
     }
   }
