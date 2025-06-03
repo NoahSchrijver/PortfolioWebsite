@@ -11,19 +11,21 @@
 </template>
 
 <script>
-import CRTScreen from '@/components/CRTScreen.vue'
+import CRTScreen from "@/components/CRTScreen.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    CRTScreen
-  }
-}
+    CRTScreen,
+  },
+};
 </script>
 
 <style>
 /* Zorg dat de body en app fullscreen zijn */
-body, html, #app {
+body,
+html,
+#app {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -52,10 +54,9 @@ body, html, #app {
   height: 100vh;
   background: #111; /* Donkere achtergrond voor de bezel */
   border-radius: 20px; /* Subtiele afgeronde hoeken */
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.8), /* Buitenste schaduw */
-    inset 0 0 20px rgba(0, 0, 0, 0.6), /* Binnenste schaduw */
-    0 0 15px rgba(0, 255, 0, 0.2); /* Groene gloed */;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8),
+    /* Buitenste schaduw */ inset 0 0 20px rgba(0, 0, 0, 0.6),
+    /* Binnenste schaduw */ 0 0 15px rgba(0, 255, 0, 0.2); /* Groene gloed */
   pointer-events: none; /* Zorg dat de bezel geen interacties blokkeert */
   z-index: 9999; /* Zet de bezel bovenop alles */
   padding: 20px; /* Ruimte voor de inhoud */
