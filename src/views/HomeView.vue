@@ -2,14 +2,16 @@
   <div class="ui-home">
     <h2>FILE SYSTEM</h2>
     <div class="ui-folders">
-      <div class="ui-folder" @click="goTo('about')">
+      <!-- Router-link naar Over Mij -->
+      <router-link to="/about" class="ui-folder">
         <span class="ui-icon">[📁]</span>
         <span class="ui-label">Over Mij</span>
-      </div>
-      <div class="ui-folder" @click="goTo('portfolio')">
+      </router-link>
+      <!-- Router-link naar Portfolio -->
+      <router-link to="/portfolio" class="ui-folder">
         <span class="ui-icon">[📂]</span>
         <span class="ui-label">Portfolio</span>
-      </div>
+      </router-link>
     </div>
     <div class="ui-hint">(Klik op een map om te openen)</div>
   </div>
@@ -17,17 +19,8 @@
 
 <script>
 export default {
-  name: 'HomeView',
-  methods: {
-    goTo(section) {
-      if (section === 'about') {
-        this.$router.push('/about');
-      } else if (section === 'portfolio') {
-        this.$router.push('/portfolio');
-      }
-    }
-  }
-}
+  name: 'HomeView'
+};
 </script>
 
 <style scoped>
@@ -37,9 +30,6 @@ export default {
   align-items: flex-start;
   min-height: 50vh;
   padding: 2rem 1rem;
-  color: #39ff14;
-  font-family: 'Share Tech Mono', 'Consolas', monospace;
-  text-shadow: 0 0 8px #39ff14, 0 0 2px #fff;
 }
 .ui-home h2 {
   margin-bottom: 2rem;
@@ -68,6 +58,10 @@ export default {
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
   user-select: none;
+  text-decoration: none; /* Verwijder standaard linkstijl */
+  color: inherit; /* Zorg dat de tekstkleur behouden blijft */
+  z-index: 3; /* Zorg dat de knoppen boven het CRT-scherm zitten */
+  position: relative; /* Vereist voor z-index */
 }
 .ui-folder:hover {
   background: rgba(60, 255, 60, 0.08);

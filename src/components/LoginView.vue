@@ -1,7 +1,7 @@
 <template>
   <div
     ref="loginDiv"
-    class="pipboy-login"
+    class="login-screen"
     tabindex="0"
     @click="focusDivAndProceed"
     @keydown.enter="proceed"
@@ -11,18 +11,19 @@
       <span
         v-for="(line, idx) in fakeConsoleOutput"
         :key="idx"
-        class="pipboy-output"
-        >{{ line }}</span
+        class="console-line"
       >
+        {{ line }}
+      </span>
     </div>
     <!-- Login prompt gecentreerd -->
     <div class="login-center">
       <pre>
-<span class="pipboy-cmd">{{ displayedLogin }}</span><span v-if="!proceeding" class="pipboy-blink">_</span>
-<span v-if="proceeding && !accessDone" class="pipboy-output">{{ displayedAccess }}<span class="pipboy-blink">_</span></span>
-<span v-if="accessDone" class="pipboy-output">{{ accessText }}</span>
+<span class="login-cmd">{{ displayedLogin }}</span><span v-if="!proceeding" class="blink-cursor">_</span>
+<span v-if="proceeding && !accessDone" class="login-output">{{ displayedAccess }}<span class="blink-cursor">_</span></span>
+<span v-if="accessDone" class="login-output">{{ accessText }}</span>
       </pre>
-      <div v-if="!proceeding" class="pipboy-hint">(Klik of druk op ENTER)</div>
+      <div v-if="!proceeding" class="login-hint">(druk op ENTER)</div>
     </div>
   </div>
 </template>
@@ -75,11 +76,9 @@ export default {
     async startLoginSequence() {
       this.proceeding = true;
       this.fakeConsoleOutput = [];
-      // Typ fake console lines één voor één
       for (let line of this.fakeLines) {
         await this.typeFakeLine(line);
       }
-      // Daarna typ je ACCESS GRANTED
       this.typeAccessGranted();
     },
     typeFakeLine(line) {
@@ -91,10 +90,10 @@ export default {
         const interval = setInterval(() => {
           currentLine += line[i];
           i++;
-          this.fakeConsoleOutput[lineIdx] = currentLine; // <-- fix
+          this.fakeConsoleOutput[lineIdx] = currentLine;
           if (i >= line.length) {
             clearInterval(interval);
-            this.fakeConsoleOutput[lineIdx] = line; // <-- fix
+            this.fakeConsoleOutput[lineIdx] = line;
             setTimeout(resolve, 200 + Math.random() * 300);
           }
         }, 18 + Math.random() * 20);
@@ -139,12 +138,12 @@ export default {
 </script>
 
 <style scoped>
-.pipboy-login {
+.login-screen {
   outline: none;
   cursor: pointer;
   user-select: none;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: relative;
   background: transparent;
 }
@@ -152,12 +151,21 @@ export default {
 .console-output {
   position: absolute;
   top: 2vh;
-  left: 2vw;
+  left: 0vw;
   width: 40vw;
   min-width: 250px;
   pointer-events: none;
   z-index: 1;
   text-align: left;
+}
+
+.console-line {
+  display: block; /* Zorg dat elke regel onder elkaar komt */
+  font-family: "Share Tech Mono", "Consolas", monospace;
+  color: #7fff7f;
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap; /* Zorg dat lange tekst wordt afgebroken */
 }
 
 .login-center {
@@ -178,25 +186,25 @@ pre {
   font-family: "Share Tech Mono", "Consolas", monospace;
 }
 
-.pipboy-cmd {
+.login-cmd {
   color: #7fff7f;
   font-weight: bold;
 }
-.pipboy-output {
+.login-output {
   color: #baffba;
   white-space: pre;
   display: block;
 }
-.pipboy-blink {
-  animation: pipboy-cursor 1s steps(1) infinite;
+.blink-cursor {
+  animation: blink-cursor 1s steps(1) infinite;
 }
-.pipboy-hint {
+.login-hint {
   color: #baffba;
   margin-top: 1em;
   font-size: 1em;
   opacity: 0.7;
 }
-@keyframes pipboy-cursor {
+@keyframes blink-cursor {
   0%,
   50% {
     opacity: 1;

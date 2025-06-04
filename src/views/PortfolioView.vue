@@ -54,9 +54,6 @@ export default {
   align-items: flex-start;
   min-height: 50vh;
   padding: 2rem 1rem;
-  color: #39ff14;
-  font-family: 'Share Tech Mono', 'Consolas', monospace;
-  text-shadow: 0 0 8px #39ff14, 0 0 2px #fff;
 }
 .ui-portfolio h2 {
   margin-bottom: 2rem;

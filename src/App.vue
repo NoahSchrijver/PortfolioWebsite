@@ -35,6 +35,8 @@ html,
   justify-content: center;
   box-sizing: border-box;
   overflow: hidden; /* Verwijder scrollbars */
+  font-family: "Share Tech Mono", "Consolas", monospace; /* Globale font */
+  color: #39ff14; /* Optioneel: standaard tekstkleur */
 }
 
 /* Wrapper om alles netjes te centreren */
@@ -57,7 +59,7 @@ html,
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8),
     /* Buitenste schaduw */ inset 0 0 20px rgba(0, 0, 0, 0.6),
     /* Binnenste schaduw */ 0 0 15px rgba(0, 255, 0, 0.2); /* Groene gloed */
-  pointer-events: none; /* Zorg dat de bezel geen interacties blokkeert */
+  pointer-events: none; /* Alleen de bezel blokkeert interacties */
   z-index: 9999; /* Zet de bezel bovenop alles */
   padding: 20px; /* Ruimte voor de inhoud */
   border: 12px solid #222; /* Donkere rand */
@@ -71,5 +73,6 @@ html,
   background: #000; /* Zwarte achtergrond voor het scherm */
   border-radius: inherit; /* Zelfde afgeronde hoeken als de bezel */
   overflow: hidden; /* Zorg dat niets buiten het scherm zichtbaar is */
+  pointer-events: auto; /* Sta interacties toe binnen het scherm */
 }
 </style>
