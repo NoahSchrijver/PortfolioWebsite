@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Project 1",
+    "description": "Beschrijving van project 1.",
+    "details": "Dit is meer informatie over project 1. Hier kun je bijvoorbeeld uitleg geven over de technologieën die zijn gebruikt.",
+    "link": "https://voorbeeld.com/project1",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 2,
+    "title": "Project 2",
+    "description": "Beschrijving van project 2.",
+    "details": "Dit is meer informatie over project 2. Hier kun je bijvoorbeeld uitleg geven over de uitdagingen die je hebt overwonnen.",
+    "link": "https://voorbeeld.com/project2",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 3,
+    "title": "Project 3",
+    "description": "Beschrijving van project 3.",
+    "details": "Dit is meer informatie over project 3. Hier kun je bijvoorbeeld uitleg geven over de resultaten die je hebt behaald.",
+    "link": "https://voorbeeld.com/project3",
+    "image": "https://via.placeholder.com/150"
+  }
+]
