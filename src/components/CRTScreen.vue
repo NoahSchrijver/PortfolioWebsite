@@ -9,8 +9,8 @@
 
 <script>
 export default {
-  name: 'CRTScreen'
-}
+  name: "CRTScreen",
+};
 </script>
 
 <style scoped>
@@ -19,15 +19,17 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background: radial-gradient(ellipse at center, rgba(27, 46, 27, 0.6) 60%, transparent 100%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(27, 46, 27, 0.6) 60%,
+    transparent 100%
+  );
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    0 0 40px rgba(0, 255, 0, 0.2) inset,
-    0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 40px rgba(0, 255, 0, 0.2) inset, 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 /* Scanlines */
@@ -64,7 +66,7 @@ export default {
   height: 100%;
   background: transparent; /* Geen achtergrondkleur */
   color: #39ff14;
-  font-family: 'Share Tech Mono', 'Consolas', monospace;
+  font-family: "Share Tech Mono", "Consolas", monospace;
   text-shadow: 0 0 8px #39ff14, 0 0 2px #fff;
   z-index: 1;
   display: flex;

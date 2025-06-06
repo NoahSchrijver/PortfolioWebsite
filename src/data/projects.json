@@ -1,26 +1,47 @@
 [
   {
     "id": 1,
-    "title": "Project 1",
-    "description": "Beschrijving van project 1.",
-    "details": "Dit is meer informatie over project 1. Hier kun je bijvoorbeeld uitleg geven over de technologieën die zijn gebruikt.",
-    "link": "https://voorbeeld.com/project1",
-    "image": "https://via.placeholder.com/150"
+    "title": "Vinotion Project",
+    "description": "Slimme openbare ruimte dankzij Vision AI",
+    "details": "Vinotions Vision AI zetten we in op een sportveld in de openbare ruimte van de gemeente 's-Hertogenbosch. Met het doel om mensen te tellen, waar mensen actief zijn en hoelang dit gebeurt. We doen dit allemaal anoniem en de ai zet de afbeeldingen op locatie al om in data voor privacy",
+    "link": "https://vinotion.com/nl/vidigest/innovatie-in-openbare-ruimte-met-vision-ai/n",
+    "image": "VinotionLogo.png",
+    "category" : "Gemeente 's-Hertogenbosch"
+    
   },
   {
     "id": 2,
-    "title": "Project 2",
-    "description": "Beschrijving van project 2.",
-    "details": "Dit is meer informatie over project 2. Hier kun je bijvoorbeeld uitleg geven over de uitdagingen die je hebt overwonnen.",
-    "link": "https://voorbeeld.com/project2",
-    "image": "https://via.placeholder.com/150"
+    "title": "Fitness Circus",
+    "description": "Een uniek Fitness Circus dat rond kan trekken.",
+    "details": "Fitness Circus is een collectie aan sport apperaten die je kunt gebruiken, alleen deze apparaten zijn niet vast op een plek, maar kunnen rondtrekken. Dit is een uniek concept dat je niet snel ergens anders zult zien. We doen dit om te meten of de apperaten daadewerkelijk gebruikt worden en of het nut heeft, hiervoor monteren we sensoren onder de apperaten die gebruik tellen.",
+    "link": "https://www.s-port.nl/fitness-circus/",
+    "image": "sport_logo.jpg",
+    "category" : "Gemeente 's-Hertogenbosch"
   },
   {
     "id": 3,
-    "title": "Project 3",
-    "description": "Beschrijving van project 3.",
-    "details": "Dit is meer informatie over project 3. Hier kun je bijvoorbeeld uitleg geven over de resultaten die je hebt behaald.",
-    "link": "https://voorbeeld.com/project3",
-    "image": "https://via.placeholder.com/150"
+    "title": "Telraam",
+    "description": "Een inisatief om verkeersdata te verzamelen en verbeteren.",
+    "details": "Bij dit project hebben we getest. op diverse locaties in de gemeente 's-Hertogenbosch, hoe we verkeersdata kunnen verzamelen en verbeteren. Dit doen we door middel van Telraam, een apparaat dat het verkeer telt en data verzameld. We hebben hier ook gexpirimenteerd met hoe straatlicht mensen kan beinvloeden na een festival.",
+    "link": "https://www.slimsamenleven.nl/nieuws/12482/",
+    "image": "Telraam-600x200.jpg",
+    "category" : "Gemeente 's-Hertogenbosch"
+  },
+    {
+    "id": 4,
+    "title": "Speeltuinen Project",
+    "description": "Hoe kunnen we kijken of een speeltuin gebruikt wordt?",
+    "details": "Dit project is net opgestart en we zoeken nog sensor oplossingen uit om te kunnen kijken wat er gebruikt wordt in een speeltuin. Daardoor kunnen we kijken of er iets kapot is of overbodig is. Waardoor we speeltuinen kunnen verslimmen",
+    "image": "Telraam-600x200.jpg",
+    "category" : "Gemeente 's-Hertogenbosch"
+  },
+  {
+    "id": 5,
+    "title": "Slim Samen Leven dagen",
+    "description": "9 en 10 Mei, 2 dagen die centraal stonden om de projecten van Slim Samen Leven te laten zien.",
+    "details": "Ik heb meegewerkt aan de Slim Samen Leven dagen, Namens het IoTStadslab van de Gemeente 's-Hertogenbosch. Dit was een evenement waar alle projecten van Slim Samen Leven werden getoond en besproken. De dagen stonden iets meer centraal richting ouderen, omdat inclusiviteit belangerijk is binnen de gemeente, en we kunnen wel nieuwe technologieën ontwikkelen, maar als ouderen er niet mee overweg kunnen, dan heeft het geen nut.",
+    "link": "https://www.slimsamenleven.nl/nieuws/slim-samenleven-dagen-2025/",
+    "image": "Slim_Samen_Oudjpeg.jpeg",
+    "category" : "Gemeente 's-Hertogenbosch"
   }
 ]

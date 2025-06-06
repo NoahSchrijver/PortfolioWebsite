@@ -1,14 +1,26 @@
 <template>
   <div class="ui-portfolio">
     <h2 class="ui-portfolio-title">PORTFOLIO</h2>
+    <!-- Filter dropdown -->
+    <select v-model="selectedCategory" class="ui-category-filter">
+      <option value="">Alle categorieën</option>
+      <option v-for="cat in categories" :key="cat" :value="cat">
+        {{ cat }}
+      </option>
+    </select>
     <div class="ui-projects">
       <div
         class="ui-project"
-        v-for="(project, index) in projects"
+        :class="{ expanded: project.expanded }"
+        v-for="(project, index) in filteredProjects"
         :key="project.id"
       >
         <div class="ui-project-header" @click="toggleDetails(index)">
-          <img :src="project.image" :alt="project.title" class="ui-project-image" />
+          <img
+            :src="getImageSrc(project.image)"
+            :alt="project.title"
+            class="ui-project-image"
+          />
           <div class="ui-project-info">
             <h3 class="ui-project-title">{{ project.title }}</h3>
             <p class="ui-project-description">{{ project.description }}</p>
@@ -19,7 +31,9 @@
         </div>
         <div v-if="project.expanded" class="ui-project-details">
           <p>{{ project.details }}</p>
-          <a :href="project.link" target="_blank" class="ui-project-link">Bekijk project</a>
+          <a :href="project.link" target="_blank" class="ui-project-link"
+            >Bekijk project</a
+          >
         </div>
       </div>
     </div>
@@ -36,9 +50,22 @@ export default {
     return {
       projects: projects.map((project) => ({
         ...project,
-        expanded: false // Voeg een 'expanded' eigenschap toe aan elk project
-      }))
+        expanded: false, // Voeg een 'expanded' eigenschap toe aan elk project
+      })),
+      selectedCategory: "",
     };
+  },
+  computed: {
+    categories() {
+      // Unieke categorieën uit je projecten
+      return [...new Set(this.projects.map((p) => p.catagory || p.category))];
+    },
+    filteredProjects() {
+      if (!this.selectedCategory) return this.projects;
+      return this.projects.filter(
+        (p) => (p.catagory || p.category) === this.selectedCategory
+      );
+    },
   },
   methods: {
     toggleDetails(index) {
@@ -46,8 +73,13 @@ export default {
     },
     goBack() {
       this.$router.push("/home"); // Navigeer terug naar de HomeView
-    }
-  }
+    },
+    getImageSrc(image) {
+      // Voor lokale afbeeldingen in assets/images-portfolio
+      if (image.startsWith("http")) return image;
+      return require(`@/assets/images-portfolio/${image}`);
+    },
+  },
 };
 </script>
 
@@ -62,6 +94,7 @@ export default {
   height: 100%;
   box-sizing: border-box;
   overflow-y: auto; /* Zorg dat de inhoud scrollbaar is als het scherm vol is */
+  position: relative;
 }
 
 /* Titel binnen het scherm */
@@ -72,13 +105,24 @@ export default {
   margin-bottom: 1rem;
 }
 
+/* Filter dropdown */
+.ui-category-filter {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #39ff14;
+  background: #111;
+  color: #39ff14;
+}
+
 /* Grid layout voor projecten */
 .ui-projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 3 kolommen indien mogelijk */
+  grid-template-columns: repeat(3, 1fr); /* Altijd 3 kolommen */
   gap: 1rem;
   width: 100%;
-  grid-auto-rows: minmax(150px, auto); /* Zorg voor consistente rijen */
+  grid-auto-rows: minmax(150px, auto);
 }
 
 /* Projectkaart */
@@ -97,7 +141,8 @@ export default {
 }
 
 .ui-project.expanded {
-  height: auto; /* Laat de hoogte groeien als het project is uitgeklapt */
+  height: auto;
+  overflow: visible;
 }
 
 /* Header van het project */
@@ -166,7 +211,10 @@ export default {
 
 /* Terugknop */
 .ui-back-button {
-  margin-top: 2rem;
+  position: absolute; /* <-- voeg toe */
+  left: 1rem; /* afstand vanaf de linkerzijde */
+  bottom: 1rem; /* afstand vanaf de onderzijde */
+  margin-top: 0; /* verwijder evt. margin-top */
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   color: #39ff14;
