@@ -3,7 +3,7 @@
     <h2>FILE SYSTEM</h2>
     <div class="ui-folders">
       <!-- Router-link naar Over Mij -->
-      <router-link to="/about" class="ui-folder">
+      <router-link to="/overmij" class="ui-folder">
         <span class="ui-icon">[📁]</span>
         <span class="ui-label">Over Mij</span>
       </router-link>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'HomeView'
+  name: "HomeView",
 };
 </script>
 

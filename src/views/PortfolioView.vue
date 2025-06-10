@@ -14,6 +14,7 @@
         :class="{ expanded: project.expanded }"
         v-for="(project, index) in filteredProjects"
         :key="project.id"
+        :style="{ animationDelay: index * 0.12 + 's' }"
       >
         <div class="ui-project-header" @click="toggleDetails(index)">
           <img
@@ -138,6 +139,8 @@ export default {
   padding: 1rem;
   overflow: hidden; /* Beperk de inhoud */
   height: 150px; /* Standaard hoogte */
+  opacity: 0;
+  animation: projectFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .ui-project.expanded {
@@ -228,5 +231,16 @@ export default {
 .ui-back-button:hover {
   background: #39ff14;
   color: #000;
+}
+
+@keyframes projectFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 </style>
