@@ -1,7 +1,7 @@
 /* CRT background effect */
 body {
     background-color: #000;
-    color: #33ff33; /* CRT green */
+    color: #33ff33;
     font-family: 'Courier New', monospace;
     text-shadow: 0 0 3px #33ff33, 0 0 5px #33ff33, 0 0 10px #33ff33, 0 0 15px #33ff33;
     overflow-x: hidden;
@@ -9,14 +9,32 @@ body {
     padding: 0;
 }
 
-/* CRT curvature */
+/* CRT curvature & vignette */
 #app {
     filter: contrast(1.2) brightness(0.9);
-    border-radius: 10px;
-    transform: perspective(800px) rotateX(2deg); /* Perspectief veranderen voor CRT Curve */
-    box-shadow: 0 0 20px #33ff33;
+    border-radius: 32px;
+    transform: perspective(700px) rotateX(6deg) scale(0.98);
+    box-shadow:
+        0 0 40px #33ff33,
+        0 0 0 12px #111 inset,
+        0 0 120px #000 inset;
     padding: 2rem;
-    background: #000;
+    background:
+        radial-gradient(ellipse at center, #222 0%, #000 90%),
+        #000;
     overflow: hidden;
+    position: relative;
+}
+
+/* Extra vignette for CRT */
+#app::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 32px;
+    background: radial-gradient(ellipse at center, transparent 60%, #000 100%);
+    opacity: 0.55;
+    z-index: 99;
 }
 

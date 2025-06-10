@@ -43,5 +43,13 @@
     "link": "https://www.slimsamenleven.nl/nieuws/slim-samenleven-dagen-2025/",
     "image": "Slim_Samen_Oudjpeg.jpeg",
     "category" : "Gemeente 's-Hertogenbosch"
+  },
+    {
+    "id": 6,
+    "title": "Verslimmen van mijn Auto",
+    "description": "Ik heb een oude auto die nog geen ingebouwde bluetooth heeft, dus ben ik daar mee aan de slag gegaan.",
+    "details": "Ik heb een oude auto gekregen via mijn Oma, Alleen deze auto heeft nog geen ingebouwde bluetooth, dus heb ik een ESP32 gekocht (een Arduino variant) en een bluetooth aux converter. Hierdoor kan als het goed is uitendelijk mijn auto wel bluetooth krijgen. Dit is een project waar ik nog mee bezig ben, maar het is wel een leuk project.",
+    "image": "Slim_Samen_Oudjpeg.jpeg",
+    "category" : "Persoonlijk Project"
   }
 ]
