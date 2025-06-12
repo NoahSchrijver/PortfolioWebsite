@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       introText: Array.from(
-        "Ik ben Noah, een enthousiaste developer met passie voor slimme technologie en maatschappelijke impact. Mijn kracht ligt in het combineren van creativiteit en techniek om de samenleving slimmer en beter te maken. Nieuwsgierig, leergierig en altijd op zoek naar innovatieve oplossingen!"
+        "Ik ben Noah, een enthousiaste developer met passie voor slimme technologie en maatschappelijke impact. Mijn kracht ligt in het combineren van creativiteit en techniek om de samenleving slimmer en beter te maken. Nieuwsgierig, leergierig en altijd op zoek naar creatieve oplossingen.",
       ),
       timeline: [
         {
@@ -68,7 +68,7 @@ export default {
       skills: [
         "JavaScript",
         "Vue.js",
-        "Python",
+        "C#",
         "IoT",
         "HTML",
         "CSS",
@@ -82,13 +82,17 @@ export default {
 </script>
 
 <style scoped>
+/* Algemene layout */
 .over-mij-ui {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 80vh;
   width: 100%;
+  padding: 1rem; /* Voeg padding toe voor kleinere schermen */
 }
+
+/* Panel */
 .ui-panel {
   background: rgba(16, 32, 16, 0.98);
   border: 2px solid #39ff14;
@@ -102,6 +106,8 @@ export default {
   color: #baffba;
   position: relative;
   animation: panelFadeIn 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto; /* Scrollbaar alleen als nodig */
+  max-height: 80vh; /* Beperk de maximale hoogte */
 }
 @keyframes panelFadeIn {
   from {
@@ -233,9 +239,7 @@ export default {
   color: #fff;
 }
 .ui-back-button {
-  position: absolute;
-  left: 1.5rem;
-  bottom: 1.5rem;
+  margin-top: 2rem; /* Voeg ruimte boven de knop toe */
   padding: 0.7rem 1.5rem;
   font-size: 1rem;
   color: #39ff14;
@@ -247,13 +251,114 @@ export default {
   font-family: "Share Tech Mono", "Consolas", monospace;
   box-shadow: 0 0 8px #39ff14;
 }
+
 .ui-back-button:hover {
   background: #39ff14;
   color: #181818;
 }
+
+/* Scrollbare container */
+.ui-panel {
+  background: rgba(16, 32, 16, 0.98);
+  border: 2px solid #39ff14;
+  border-radius: 12px;
+  box-shadow: 0 0 24px #39ff1460;
+  padding: 2rem 2.5rem;
+  max-width: 650px;
+  width: 100%;
+  margin: 2rem 0;
+  font-family: "Share Tech Mono", "Consolas", monospace;
+  color: #baffba;
+  position: relative;
+  animation: panelFadeIn 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto; /* Scrollbaar alleen als nodig */
+  max-height: 80vh; /* Beperk de maximale hoogte */
+}
+
+/* Custom scrollbar */
+.ui-panel::-webkit-scrollbar {
+  width: 8px; /* Breedte van de scrollbar */
+}
+
+.ui-panel::-webkit-scrollbar-track {
+  background: rgba(16, 32, 16, 0.5); /* Achtergrond van de scrollbar */
+  border-radius: 8px;
+}
+
+.ui-panel::-webkit-scrollbar-thumb {
+  background: #39ff14; /* Groen neon kleur */
+  border-radius: 8px;
+  box-shadow: 0 0 8px #39ff14; /* Glow effect */
+}
+
+.ui-panel::-webkit-scrollbar-thumb:hover {
+  background: #66ff66; /* Lichtere groen bij hover */
+}
+
+/* Verberg scrollbar bij fullscreen */
+@media (min-height: 80vh) {
+  .ui-panel {
+    overflow-y: hidden; /* Verberg de scrollbar */
+  }
+}
+
+/* Responsieve layout */
 @media (max-width: 700px) {
   .ui-panel {
-    padding: 1rem 0.5rem;
+    padding: 1rem; /* Verminder de padding */
+    max-width: 100%; /* Zorg dat de panel de volledige breedte gebruikt */
+    overflow-y: auto; /* Maak de container scrollbaar */
+ 
+    margin: 1rem auto; /* Zorg dat de container niet tegen de randen komt */
+  }
+
+  .ui-header-title {
+    font-size: 1rem; /* Verklein de titel */
+  }
+
+  .ui-section-title {
+    font-size: 0.9rem; /* Verklein de sectietitels */
+  }
+
+  .ui-intro pre.ui-typing {
+    font-size: 0.9rem; /* Verklein de tekst */
+    min-height: 70px; /* Verminder de minimale hoogte */
+  }
+
+  .timeline {
+    padding-left: 1rem; /* Verminder de padding */
+  }
+
+  .timeline-year {
+    font-size: 0.9rem; /* Verklein de jaartallen */
+  }
+
+  .timeline-title {
+    font-size: 0.9rem; /* Verklein de titels */
+  }
+
+  .timeline-desc {
+    font-size: 0.85rem; /* Verklein de beschrijving */
+  }
+
+  .skills-list {
+    gap: 0.5rem; /* Verminder de ruimte tussen badges */
+  }
+
+  .skill-badge {
+    padding: 0.3rem 0.8rem; /* Verminder de padding van badges */
+    font-size: 0.9rem; /* Verklein de tekstgrootte */
+  }
+
+  .ui-contact {
+    font-size: 0.9rem; /* Verklein de tekstgrootte */
+  }
+
+  .ui-back-button {
+    padding: 0.5rem 1rem; /* Verminder de padding van de knop */
+    font-size: 0.9rem; /* Verklein de tekstgrootte */
+    left: 1rem; /* Pas de positie aan */
+    bottom: 1rem; /* Pas de positie aan */
   }
 }
 </style>

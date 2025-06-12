@@ -1,6 +1,6 @@
 <template>
   <div class="ui-home">
-    <h2>FILE SYSTEM</h2>
+    <h2>FILE SYSTEM:</h2>
     <div class="ui-folders">
       <!-- Router-link naar Over Mij -->
       <router-link to="/overmij" class="ui-folder">

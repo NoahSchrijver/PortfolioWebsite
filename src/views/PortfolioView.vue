@@ -121,9 +121,8 @@ export default {
 .ui-projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Altijd 3 kolommen */
-  gap: 1rem;
+  gap: 1rem; /* Ruimte tussen de kaarten */
   width: 100%;
-  grid-auto-rows: minmax(150px, auto);
 }
 
 /* Projectkaart */
@@ -212,12 +211,12 @@ export default {
   border-bottom: 1px solid #fff;
 }
 
-/* Terugknop */
+/* Terugknop standaard (desktop) */
 .ui-back-button {
-  position: absolute; /* <-- voeg toe */
-  left: 1rem; /* afstand vanaf de linkerzijde */
-  bottom: 1rem; /* afstand vanaf de onderzijde */
-  margin-top: 0; /* verwijder evt. margin-top */
+  position: fixed; /* Zorg dat de knop altijd links onderin staat */
+  left: 1rem; /* Afstand vanaf de linkerzijde */
+  bottom: 4rem; /* Afstand vanaf de onderzijde, rekening houdend met de bezel */
+  margin-left: 1vw;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   color: #39ff14;
@@ -226,11 +225,28 @@ export default {
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  z-index: 1000; /* Zorg dat de knop boven andere elementen blijft */
 }
 
 .ui-back-button:hover {
   background: #39ff14;
   color: #000;
+}
+
+/* Media query: Relatieve positie op mobiele apparaten */
+@media (max-width: 700px) {
+  .ui-back-button {
+    position: relative; /* Maak de knop onderdeel van de flow */
+    margin-top: 2rem; /* Voeg ruimte boven de knop toe */
+    left: auto; /* Reset de linkerpositie */
+    bottom: auto; /* Reset de onderpositie */
+  }
+
+  /* Responsieve layout: projecten 1 aan 1 onder elkaar op mobiele apparaten */
+  .ui-projects {
+    grid-template-columns: 1fr; /* Eén kolom */
+    gap: 1rem; /* Ruimte tussen de kaarten */
+  }
 }
 
 @keyframes projectFadeIn {
